@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生成绩管理系统</title>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css"/>
+
+</head>
+
+<body>
+    <div class="header">
+        <span class="left">汉 东 大 学 学 生 信 息 管 理 系 统</span>
+        <span class="right">你 好，{{user_info}}同学！</span>
+        <span class="right_right"><a href="/">退出登陆</a></span>
+    </div>
+    <div class="leftside">
+        <ul>
+            <li><a href="/stu_baseInfo">学生基本信息查看</a></li>
+            <li><a href="/stu_courses">学生选课管理</a></li>
+            <li><a href="/stu_score">个人成绩查看</a></li>
+            <li><a href="/stu_terCourse">老师开设课程查看</a></li>
+            <li class="first"><a href="/stu_Users">账号密码修改</a></li>
+        </ul>
+    </div>
+    <div class="container-fluid">
+        <h1 class="sub-header center">学 生 账 号 信 息 变 动 系 统</h1>
+        <div class="table-responsive">
+            <table class="table table-striped">
+            <form></form>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">请输入用户账号</th>
+                        <th style="width: 25%;">请输入修改后的密码</th>
+                        <th style="width: 10%;">操作</th>
+                        <th style="width: 15%;">操作结果</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <form action="" method="post" onsubmit="return handleSubmit()">
+                            <td><input class="long" name="admin_id" type="text" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td><input class="long" name="admin_password" type="text" /></td>
+                            <td><input class="last" type="submit" value="操作" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td class="doit"><span>{{insert_result}}</span></td>
+                        </form>
+                    </tr>
+                    <tr>
+                        <td>用户账号</td>
+                        <td>用户名</td>
+                        <td>密码</td>
+                    </tr>
+                    {% for result in results %}
+                    <tr>
+                        <td>{{result[0]}}</td>
+                        <td>{{result[1]}}</td>
+                        <td>{{result[2]}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
+
+
+
+
